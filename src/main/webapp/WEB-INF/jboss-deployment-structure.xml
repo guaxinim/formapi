@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="org.jboss.resteasy.resteasy-jaxrs" export="true" meta-inf="import" />
+			<module name="org.jboss.resteasy.resteasy-cdi" export="true" meta-inf="import" />
+            <module name="org.jboss.resteasy.resteasy-jaxb-provider" export="true" meta-inf="import" />
+            <module name="org.apache.httpcomponents" export="true" meta-inf="import" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>

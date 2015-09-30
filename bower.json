@@ -1,0 +1,36 @@
+{
+  "name": "formapi",
+  "version": "0.0.0",
+  "homepage": "https://github.com/guaxinim/formapi",
+  "authors": [
+    "elvishrocha@gmail.com"
+  ],
+  "description": "Basic application for proof of concepts",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "keycloak",
+    "form",
+    "quickstart"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "polymer": "~1.1.4",
+    "bootstrap": "~3.3.5",
+    "ng-grid": "angular-grid#2.0.11",
+    "jquery": "1.9.1",
+    "angular-bootstrap": "0.11.0"
+  },
+  "resolutions": {
+    "jquery": ">= 1.9.1"
+  }
+}
