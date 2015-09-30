@@ -14,10 +14,12 @@ User <b id="subject"></b> made this request.
 <p>Full Name: <span id="name"></span></p>
 <p>First: <span id="givenName"></span></p>
 <p>Last: <span id="familyName"></span></p>
-
+<p>Customer: <span id="customers"></span></p>
 
 <script>
     var keycloak = Keycloak('keycloak.json');
+
+    alert('keycloak: ' + keycloak.idToken);
 
     var loadData = function () {
         document.getElementById('subject').innerHTML = keycloak.subject;
@@ -42,12 +44,13 @@ User <b id="subject"></b> made this request.
             });
         }
 
-        var url = '/resources/users';
+        var url = 'http://localhost:8081/admin/realms/master/users';
 
         var req = new XMLHttpRequest();
         req.open('GET', url, true);
         req.setRequestHeader('Accept', 'application/json');
         req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+
         alert('token ' + keycloak.token);
 
         req.onreadystatechange = function () {
@@ -64,7 +67,7 @@ User <b id="subject"></b> made this request.
             }
         }
 
-        req.send();
+        //req.send();
     };
 
     var loadFailure = function () {
@@ -79,7 +82,7 @@ User <b id="subject"></b> made this request.
                 });
     }
 
-    keycloak.init({ onLoad: 'login-required' }).success(reloadData);
+    //keycloak.init({ onLoad: 'login-required' }).success(reloadData);
 
 </script>
 

@@ -63,11 +63,13 @@
                         <configuration>
                             <hostname>localhost</hostname>
                             <port>9999</port>
+                            <!--
                             <domain>
                                 <server-groups>
                                     <server-group>bpms</server-group>
                                 </server-groups>
                             </domain>
+                            -->
                         </configuration>
                     </execution>
                 </executions>
