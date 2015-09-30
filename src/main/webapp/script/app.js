@@ -20,7 +20,7 @@ angular.element(document).ready(function ($http) {
         console.log('here login');
         auth.loggedIn = true;
         auth.authz = keycloakAuth;
-        auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/" + keycloakAuth.realm + "/tokens/logout?redirect_uri=http://localhost:8081/angular-cors-product/index.html";
+        auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/" + keycloakAuth.realm + "/tokens/logout?redirect_uri=http://localhost:8080/formapi/index.html";
         module.factory('Auth', function() {
             return auth;
         });
@@ -37,14 +37,8 @@ module.controller('GlobalCtrl', function($scope, $http) {
     $scope.serverInfo = [];
     $scope.realm = [];
     $scope.version = [];
-    $scope.reloadData = function() {
-        $http.get("http://localhost:8080/cors-database/products").success(function(data) {
-            $scope.products = angular.fromJson(data);
-
-        });
-
-    };
     $scope.loadRoles = function() {
+    $http.defaults.headers.common.Authorization = 'Bearer ' + auth.authz.token;
         $http.get("http://localhost:8081/auth/admin/realms/" + auth.authz.realm + "/roles").success(function(data) {
             $scope.roles = angular.fromJson(data);
 
@@ -52,13 +46,13 @@ module.controller('GlobalCtrl', function($scope, $http) {
 
     };
     $scope.addRole = function() {
-        $http.post("http://localhost:8081/auth/admin/realms/" + auth.authz.realm + "/roles", {name: 'stuff'}).success(function() {
+        $http.post("http://localhost:8081/auth/admin/realms/" + auth.authz.realm + "/roles", {name: 'teste'}).success(function() {
             $scope.loadRoles();
         });
 
     };
     $scope.deleteRole = function() {
-        $http.delete("http://localhost:8081/auth/admin/realms/" + auth.authz.realm + "/roles/stuff").success(function() {
+        $http.delete("http://localhost:8081/auth/admin/realms/" + auth.authz.realm + "/roles/teste").success(function() {
             $scope.loadRoles();
         });
 
@@ -72,7 +66,7 @@ module.controller('GlobalCtrl', function($scope, $http) {
     };
 
     $scope.loadPublicRealmInfo = function() {
-        $http.get("http://localhost:8080/auth/realms/cors").success(function(data) {
+        $http.get("http://localhost:8081/auth/realms/master").success(function(data) {
             $scope.realm = angular.fromJson(data);
         });
     };
@@ -107,13 +101,46 @@ module.factory('authInterceptor', function($q, Auth) {
 });
 
 
+//module.config(function($httpProvider) {
+//    $httpProvider.responseInterceptors.push('errorInterceptor');
+//    $httpProvider.interceptors.push('authInterceptor');
+//});
+
+module.factory('myHttpInterceptor', function($q, dependency1, dependency2) {
+          return {
+            // optional method
+            'request': function(config) {
+              // do something on success
+              return config;
+            },
+
+            // optional method
+           'requestError': function(rejection) {
+              // do something on error
+              if (canRecover(rejection)) {
+                return responseOrNewPromise
+              }
+              return $q.reject(rejection);
+            },
 
 
-module.config(function($httpProvider) {
-    $httpProvider.responseInterceptors.push('errorInterceptor');
-    $httpProvider.interceptors.push('authInterceptor');
 
-});
+            // optional method
+            'response': function(response) {
+              // do something on success
+              return response;
+            },
+
+            // optional method
+           'responseError': function(rejection) {
+              // do something on error
+              if (canRecover(rejection)) {
+                return responseOrNewPromise
+              }
+              return $q.reject(rejection);
+            }
+          };
+        });
 
 module.factory('errorInterceptor', function($q) {
     return function(promise) {

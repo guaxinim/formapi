@@ -3,10 +3,6 @@
   "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwXK85p++LrSbDZpbFClEhcN7SGXRGfX/P+676drkjcC1qsMoxXxNU/2/R48yFjFjLuColW7qWMPO+rSSK3PF52+3XoDt4zKrK2pxbb+Nx0vqsvRPDmsWO8CDiaTxYBWQRw7nIrVu+pAgYFZ++wvlvV2ulscj6K+N6LkTgFvD/pJ8KrxkEwsRyhHBcJ6sdjjOmAOQcikziiy0+WdNj9IpZsWk7Oc6wJnLN85lbEwGwoeaMRkiKs7cRRkYeu/0fcdVV7bgidDfaAGBMls1DGGO3BXA2Ad1V0deC0XKOMfulFXMpm9qDbXKF6XcxlFm/pAnAT/of025r4ZOpEm+CtHUhQIDAQAB",
   "auth-server-url": "http://localhost:8081/auth",
   "ssl-required": "external",
-  "enable-cors": true,
-  "cors-max-age" : 1000,
-  "cors-allowed-methods" : "POST, PUT, DELETE, GET",
-  "bearer-only" : false,
   "resource": "formapi",
   "credentials": {
     "secret": "70c5f217-f2e3-4d0e-8ac7-2d21febee41f"

@@ -396,6 +396,7 @@
 
                 req.onreadystatechange = function() {
                     if (req.readyState == 4) {
+
                         if (req.status == 200) {
                             timeLocal = (timeLocal + new Date().getTime()) / 2;
 
