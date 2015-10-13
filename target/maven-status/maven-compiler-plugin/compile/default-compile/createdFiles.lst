@@ -1,0 +1,5 @@
+br/com/guaxinim/backend/UserResource.class
+br/com/guaxinim/backend/PersonResource.class
+br/com/guaxinim/backend/ResourceApplication.class
+br/com/guaxinim/backend/PaginatedListWrapper.class
+br/com/guaxinim/entities/Person.class

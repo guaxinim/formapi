@@ -1,12 +1,10 @@
 {
   "realm": "master",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwXK85p++LrSbDZpbFClEhcN7SGXRGfX/P+676drkjcC1qsMoxXxNU/2/R48yFjFjLuColW7qWMPO+rSSK3PF52+3XoDt4zKrK2pxbb+Nx0vqsvRPDmsWO8CDiaTxYBWQRw7nIrVu+pAgYFZ++wvlvV2ulscj6K+N6LkTgFvD/pJ8KrxkEwsRyhHBcJ6sdjjOmAOQcikziiy0+WdNj9IpZsWk7Oc6wJnLN85lbEwGwoeaMRkiKs7cRRkYeu/0fcdVV7bgidDfaAGBMls1DGGO3BXA2Ad1V0deC0XKOMfulFXMpm9qDbXKF6XcxlFm/pAnAT/of025r4ZOpEm+CtHUhQIDAQAB",
-  "auth-server-url": "http://localhost:8081/auth",
+  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz9VnQ3qQ6IAMvohbMYuMU1Pe1C+bSUk2zyefVG2MBGNzb+HsKrVcNUWcZqJTpqg4Cn+LX+9X7a0vhKH2lyNm/qS4P/8jn/bAStX1/eARlX9vtuCEi08r2TDICD66FGO3CJP773ZVMf/DFH1w5A490XZc2TF2LS58J+sTu9sFCt0TNZoy9jAT2uO8FzPCoFxMjejZmHvsLrRCM7p1pSGyqFwjv1RKr/Wg221RgPyFKPHafzwvi3bmhLo1HATkxoRHVwIenoyjDy/cm8p8S4mEOy672raBy2Rsp/LQL5ZJdzvAVGKYrq00YvoTibghR9mSgcHUrn0UJRpvzCwcw1CElQIDAQAB",
+  "auth-server-url": "http://jboss-keycloak:8080/auth",
   "ssl-required": "external",
   "resource": "formapi",
-  "credentials": {
-    "secret": "70c5f217-f2e3-4d0e-8ac7-2d21febee41f"
-  },
+  "public-client": true,
   "use-resource-role-mappings": true,
   "principal-attribute": "preferred_username"
 }

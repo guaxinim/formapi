@@ -1,0 +1,68 @@
+<web-app metadata-complete="false">
+
+    <display-name>formapi</display-name>
+    <description>Form api</description>
+
+    <!-- Security configuration -->
+
+    <security-role>
+        <role-name>admin</role-name>
+        <description>Administrator - Administrates the BPMS system. Has full access rights to make any changes necessary. Also has the ability to add and remove users from the system.</description>
+    </security-role>
+
+    <security-role>
+        <role-name>analyst</role-name>
+        <description>Analyst - Responsible for creating and designing processes into the system. Creates process flows and handles process change requests. Needs to test processes that they create. Also creates forms and dashboards.</description>
+    </security-role>
+
+    <security-role>
+        <role-name>user</role-name>
+        <description>Business user - Daily user of the system to take actions on business tasks that are required for the processes to continue forward. Works primarily with the task lists.</description>
+    </security-role>
+
+    <security-role>
+        <role-name>manager</role-name>
+        <description>Manager/Viewer-only User - Viewer of the system that is interested in statistics around the  business processes and their performance, business indicators, and other reporting of the system and people who interact with the system.</description>
+    </security-role>
+
+    <!--
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Free access</web-resource-name>
+            <url-pattern>/redhat/*</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
+    -->
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Restricted access</web-resource-name>
+            <!--<url-pattern>/users.html</url-pattern>-->
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>analyst</role-name>
+            <role-name>manager</role-name>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>KEYCLOAK</auth-method>
+    </login-config>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/not_authorized.jsp</location>
+    </error-page>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>
